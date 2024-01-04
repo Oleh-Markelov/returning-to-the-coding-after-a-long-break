@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WebApp.DAL\WebApp.DAL.csproj" />
     <ProjectReference Include="..\WebApp.Domain\WebApp.Domain.csproj" />
-    <ProjectReference Include="..\WebApp.Service\WebApp.BAL.csproj" />
+    <ProjectReference Include="..\WebApp.Service\WebApp.BLL.csproj" />
   </ItemGroup>
 
 </Project>

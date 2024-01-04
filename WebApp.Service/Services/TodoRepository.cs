@@ -1,4 +1,5 @@
-﻿using WebApp.BLL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApp.BLL.Interfaces;
 using WebApp.DAL.GenericRepository.Repository;
 using WebApp.Domain.Models;
 
@@ -6,7 +7,6 @@ namespace WebApp.BLL.Services
 {
     public class TodoRepository : RepositoryBase<Todo>, ITodoRepository
     {
-        private readonly DAL.AppContext _appContext;
         public TodoRepository(DAL.AppContext appContext) : base(appContext)
         {
             _appContext = appContext;
@@ -22,14 +22,17 @@ namespace WebApp.BLL.Services
             await Delete(id);
         }
 
-        public async Task<IEnumerable<Todo>> GetAllTodo()
+        public async Task<IQueryable<Todo>> GetAllTodo()
         {
-            IEnumerable<Todo> todos = await FindAllAsync()
+            //IQueryable<Todo> todo = await GetAllAsync();
+            var test = (IQueryable<Todo>)await FindByConditionAsync(null, trackChanges: false).Result.ToListAsync();
+            return test;
         }
 
-        public Task<Todo> GetTodo(int id)
+        public async Task<Todo> GetTodo(int id)
         {
-            throw new NotImplementedException();
+            Todo todo = await FindByConditionAsync(e => e.Id.Equals(id), trackChanges: false).Result.SingleOrDefaultAsync();
+            return todo;
         }
     }
 }

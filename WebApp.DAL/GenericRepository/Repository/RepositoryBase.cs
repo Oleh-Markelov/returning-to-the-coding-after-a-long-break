@@ -16,17 +16,10 @@ namespace WebApp.DAL.GenericRepository.Repository
             await Task.Run(() => _appContext.Set<T>().Add(entity));
         }
 
-        public async Task<IQueryable<T>> FindAllAsync(bool trackChanges)
+        public async Task<IQueryable<T>> GetAllAsync()
         {
 
-            if (trackChanges)
-            {
-                return await Task.Run(() => _appContext.Set<T>());
-            }
-            else
-            {
-                return await Task.Run(() => _appContext.Set<T>().AsNoTracking());
-            }
+           return (IQueryable<T>)await Task.Run(() => _appContext.Set<T>().ToListAsync());
         }
 
         public async Task<IQueryable<T>> FindByConditionAsync(Expression<Func<T, bool>> expression, bool trackChanges)

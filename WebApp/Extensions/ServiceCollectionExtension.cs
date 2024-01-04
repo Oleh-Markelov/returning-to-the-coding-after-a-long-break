@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApp.BLL.Interfaces;
+using WebApp.BLL.Services;
 
 namespace WebApp.API.Extensions
 {
@@ -9,6 +11,9 @@ namespace WebApp.API.Extensions
             services.AddDbContext<WebApp.DAL.AppContext>(
                 options => options.UseSqlServer(configuration.GetConnectionString("ApplicationContext")));
         }
-          
+
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+            => services.AddScoped<IRepositoryManager, RepositoryManager>();
+
     }
 }

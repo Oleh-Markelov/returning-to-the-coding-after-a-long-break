@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.DAL", "WebApp.DAL\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Domain", "WebApp.Domain\WebApp.Domain.csproj", "{35193ACE-957C-4FD4-A288-A66FBF8E5E64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.BAL", "WebApp.Service\WebApp.BAL.csproj", "{FE845FF9-F19F-41B1-B1BD-6E585D2887EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.BLL", "WebApp.Service\WebApp.BLL.csproj", "{FE845FF9-F19F-41B1-B1BD-6E585D2887EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
